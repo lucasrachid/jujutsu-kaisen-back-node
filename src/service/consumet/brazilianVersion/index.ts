@@ -1,6 +1,6 @@
-const { MANGA } = require('@consumet/extensions');
+import { MANGA } from "../../../../node_modules/@consumet/extensions/dist/index";
 
-async function searchForMangaBR(mangaName) {
+async function searchForMangaBR(mangaName: string) {
   try {
     const manga = new MANGA.Mangasee123();
     const results = await manga.search(mangaName);
@@ -10,7 +10,7 @@ async function searchForMangaBR(mangaName) {
   }
 }
 
-async function getMangaInfoBR(mangaId) {
+async function getMangaInfoBR(mangaId: string) {
   try {
     const manga = new MANGA.Mangasee123();
     const results = await manga.fetchMangaInfo(mangaId);
@@ -20,7 +20,7 @@ async function getMangaInfoBR(mangaId) {
   }
 }
 
-async function getMangaChapterBR(chapterId) {
+async function getMangaChapterBR(chapterId: string) {
   try {
     const manga = new MANGA.Mangasee123();
     const results = await manga.fetchChapterPages(chapterId);
@@ -30,8 +30,4 @@ async function getMangaChapterBR(chapterId) {
   }
 }
 
-module.exports = {
-  searchForMangaBR,
-  getMangaInfoBR,
-  getMangaChapterBR,
-};
+export { searchForMangaBR, getMangaInfoBR, getMangaChapterBR };
